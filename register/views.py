@@ -28,4 +28,5 @@ def delete_element(request,id):
     queryset=register.objects.get(id=id)
     queryset.delete()
 
+    
     return redirect("/register/" )
