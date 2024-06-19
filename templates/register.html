@@ -52,7 +52,9 @@
             <td>{{register.phone}}</td>
             <td>{{register.address}}</td>
             <td><button type="button" class="btn btn-info" >Info</button></td>
-            <td><button type="button" class="btn btn-danger" ><a href="delete_element/{{register.id}}/">delete</a></button></td>
+            <td><button type="button" class="btn btn-outline-danger"><a href="delete_element/{{register.id}}/">delete</a></button>
+              <button type="button" class="btn btn-outline-success"><a style="text-decoration:none" href ="update_element/{{register.id}}/" >update</a></button>
+            </td>
           
           </tr>
          {% endfor%}
