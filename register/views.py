@@ -28,6 +28,7 @@ def delete_element(request,id):
     queryset=register.objects.get(id=id)
     queryset.delete()
     return redirect("/register/" )
+
 def update_element(request,id):
     
     queryset=register.objects.get(id=id)
@@ -37,10 +38,11 @@ def update_element(request,id):
         age=data.get('age')
         phone=data.get('phone')
         address=data.get('address')
+        
         queryset.name=name
         queryset.age=age
         queryset.phone=phone
         queryset.address=address
         queryset.save()
         return redirect("/register/" )
-    return render("update.html",context={"update":queryset} )
+    return render(request,"update.html",context={"update":queryset} )

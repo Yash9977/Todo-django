@@ -3,21 +3,21 @@
 
     
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+        
         <div class="mb-3">
           <label for="exampleInputEmail1" name="name" class="form-label">name</label>
-          <input type="text" name="name" required class="form-control" value="{{update.name}}">
+          <input type="text" name="name" value="{{update.name}}" required class="form-control" >
           
         <div class="mb-3">
           <label for="exampleInputPassword1 class="form-label"> age</label>
-          <input type="text"name="age" required class="form-control"value="{{update.age}}" >
+          <input type="text"name="age" value="{{update.age}}" required class="form-control" >
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">phone</label>
-            <input type="text"name="phone" required class="form-control" value="{{update.phone}}">
+            <input type="text"name="phone" value="{{update.phone}}" required class="form-control" >
           </div> <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">address</label>
-            <input type="text"name="address" required class="form-control"value="{{update.address}}" >
+            <input type="text"name="address" value="{{update.address}}" required class="form-control" >
           </div>
        
         <button type="submit" class="btn btn-primary">Update</button>
