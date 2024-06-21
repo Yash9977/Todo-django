@@ -32,6 +32,7 @@ def delete_element(request,id):
 def update_element(request,id):
     
     queryset=register.objects.get(id=id)
+   
     if request.method =="POST":
         data=request.POST
         name=data.get('name')
@@ -46,3 +47,8 @@ def update_element(request,id):
         queryset.save()
         return redirect("/register/" )
     return render(request,"update.html",context={"update":queryset} )
+
+def sign_up(request):
+    return render(request,"sign_up.html")
+def sign_in(request):
+     return render(request,"sign_in.html")
