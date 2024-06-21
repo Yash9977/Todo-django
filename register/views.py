@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.contrib.auth.models import User
 # Create your views here.
 def basic(request):
     if request.method =="POST":
@@ -49,6 +50,22 @@ def update_element(request,id):
     return render(request,"update.html",context={"update":queryset} )
 
 def sign_up(request):
+    if request.method =="POST":
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        user=User.object.filter(username=username)
+        if user.exist():
+            return redirect("/sign_up/")
+        user=User.object.create(
+            first_name=first_name,
+            last_name=last_name,
+            username=username,
+            )
+        user.set_passwor(password)
+        user.save()
+        return redirect("/sign_up/")
     return render(request,"sign_up.html")
 def sign_in(request):
      return render(request,"sign_in.html")
