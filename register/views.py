@@ -55,17 +55,18 @@ def sign_up(request):
         last_name=request.POST.get('last_name')
         username=request.POST.get('username')
         password=request.POST.get('password')
-        user=User.object.filter(username=username)
-        if user.exist():
-            return redirect("/sign_up/")
-        user=User.object.create(
+        user=User.objects.filter(username=username)
+        # if user.exist():
+        #     return redirect("/sign_in/")
+        user=User.objects.create_user(
             first_name=first_name,
             last_name=last_name,
             username=username,
             )
-        user.set_passwor(password)
+        user.set_password(password)
         user.save()
-        return redirect("/sign_up/")
+        
+        return redirect("/sign_in/")
     return render(request,"sign_up.html")
 def sign_in(request):
      return render(request,"sign_in.html")
